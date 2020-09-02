@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <Product id="PROD01">
+    <Title>Product 1</Title>
+    <Description><![CDATA[Product <b>1</b> description]]></Description>
+    <Image>prod01.gif</Image>
+    <Price>145.12</Price>
+    <Sorting>
+      <Popular>1</Popular>
+    </Sorting>
+  </Product>

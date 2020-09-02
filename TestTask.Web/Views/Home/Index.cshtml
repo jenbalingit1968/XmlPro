@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<div class="jumbotron">
+    <div class="row" id="ProductListContent">
+        <div class="col-lg-12 col-md-12 col-sm-12 "><p>Product List</p></div>
+        <div class="col-sm-12 col-lg-3  col">
+            <div class="dropdown">
+                <label>Sort By: </label>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Price
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" id="priceSelected">Price</a>
+                    <a class="dropdown-item" id="popularitySelected">Popularity</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-9 col">
+            <label class="pointer margin-t10" id="ascendingLabel">Order by: </label>
+
+            <label class="pointer margin-t10" id="ascendingLabel">Ascending</label>
+            <label> / </label>
+            <label class="pointer margin-t10" id="descendingLabel">Descending</label>
+        </div>
+
+        <div class="row" id="productContent">
+        </div>
+    </div>
+
+
+    <div class="hide" id="productDetailContent">
+        <div class="row">
+            <p>Product Detail</p>
+        </div>
+        <br>
+        <div>
+            <div class="row"><p class="col-lg-12 col-md-12 col-sm-12 productName"></p></div>
+            <br>
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <img class="image-100x100" src="~/Content/cube-512.png" />
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <div class="row">
+                        <div class="col col-lg-9 col-md-9 col-sm-9">
+                            <p class="productDesc"></p>
+                        </div>
+                        <div class="col col-lg-3 col-md-3 col-sm-3">
+                            <div>
+                                <p class="productPrice"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row productSpec ">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <p>Specification</p>
+                    <ul></ul>
+                </div>
+                <br>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <button type="button" class="backButton btn btn-primary">back to list</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
