@@ -13,7 +13,7 @@ namespace TestTask.Web.Logics
     public class ProductLogic
     {
 
-        public List<Product> GetProducts(bool sortByPrice, bool isAscending)
+        public List<Product> GetProducts(bool sortByPrice = true, bool isAscending = true)
         {
             var merge = (from p in LoadProducts()
                          join d in GetProductDetails()

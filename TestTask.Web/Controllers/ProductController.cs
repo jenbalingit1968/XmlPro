@@ -22,20 +22,6 @@ namespace TestTask.Web.Controllers
             return Json(raw, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public ActionResult GetProductDetail(string id)
-        {
-
-            return RedirectToAction("ProductDetail", new { id });
-        }
-
-        [HttpGet]
-        public ActionResult ProductDetail()
-        {
-
-            return View();
-        }
-
         public ActionResult GetDetails(string id)
         {
             var raw = productLogic.GetProductDetails(id);

@@ -55,3 +55,7 @@ margin-top:20px !important;
     font-weight:bold !important;
     cursor:pointer
 }
+
+.marin-no-padding {
+    margin-bottom:0 !important;
+}
