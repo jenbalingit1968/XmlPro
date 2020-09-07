@@ -15,28 +15,44 @@ namespace TestTask.Web.Logics
 
         public List<Product> GetProducts(bool sortByPrice = true, bool isAscending = true)
         {
+
             var merge = (from p in LoadProducts()
                          join d in GetProductDetails()
                          on p.Id equals d.Id
-                         select new Product()
+                         select new
                          {
-                             Title = p.Title,
-                             Price = p.Price,
-                             Availability = d.Availability,
-                             Id = p.Id,
-                             Image = p.Image,
-                             Description = p.Description,
-                             Sorting = p.Sorting
+                             p.Title,
+                             p.Price,
+                             d.Availability,
+                             p.Id,
+                             p.Image,
+                             p.Description,
+                             p.Sorting
                          });
 
+            var grpResult = (from g in merge
+                             group g by g.Id into grp
+                             select new Product()
+                             {
+                                 Id = grp.Key,
+                                 Title = grp.FirstOrDefault().Title,
+                                 Price = grp.FirstOrDefault().Price,
+                                 Availability = grp.FirstOrDefault().Availability,
+                                 Image = grp.FirstOrDefault().Image,
+                                 Description = grp.FirstOrDefault().Description,
+                                 Sorting = grp.FirstOrDefault().Sorting
+                             });
+
+
+
             if (sortByPrice && isAscending)
-                return merge.OrderBy(o => o.Price).ToList();
-            else if(sortByPrice && !isAscending)
-                return merge.OrderByDescending(o => o.Price).ToList();
-            else if(!sortByPrice && isAscending)
-                return merge.OrderBy(o => o.Sorting.Popular).ToList();
+                return grpResult.OrderBy(o => o.Price).ToList();
+            else if (sortByPrice && !isAscending)
+                return grpResult.OrderByDescending(o => o.Price).ToList();
+            else if (!sortByPrice && isAscending)
+                return grpResult.OrderBy(o => o.Sorting.Popular).ToList();
             else
-                return merge.OrderByDescending(o => o.Sorting.Popular).ToList();
+                return grpResult.OrderByDescending(o => o.Sorting.Popular).ToList();
 
         }
 

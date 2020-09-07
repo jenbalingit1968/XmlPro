@@ -22,7 +22,8 @@
 
   
 
-    var loadProductList = function() {
+    var loadProductList = function () {
+
         $.ajax({
             url: 'Product/GetProducts?sortByPrice=' + sortByPrice + '&isAscending=' + isAscending,
             cache: true,
@@ -65,6 +66,7 @@
     var $this = $(this).data('id');
 
     var $productDetailTemplate = $('#productDetailContent');
+
     $.ajax({
         url: 'Product/GetDetails?Id=' + $this,
         cache: true,
